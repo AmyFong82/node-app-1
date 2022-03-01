@@ -17,9 +17,19 @@ const log = require('./logger')
 //requiring the built-in "path" & 'os' modules from node
 const path = require('path')
 const os = require('os')
+const fs = require('fs') //fs means files
 
 let totalMemory = os.totalmem();
 let freeMemory = os.freemem();
 
 console.log(`Total Memory: ${totalMemory}`)
 console.log(`Free Memory: ${freeMemory}`)
+
+//a fs read-directory function that takes 2 args
+// first is the directory, 2nd is the callback function
+// the call-back fn takes 2 args as well: err or the result
+// the result is an array of strings shows the filenames.
+fs.readdir('./', function(err, files){
+  if(err) console.log("Error", err);
+  else console.log("Result", files);
+})
