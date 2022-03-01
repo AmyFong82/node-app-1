@@ -1,6 +1,7 @@
 //used const to set the variable for a required file
 //so that we don't overwrite it.
-const log = require('./logger')
+const Logger = require('./logger')
+const logger = new Logger()
 
 //see what logger is in the console.
 // console.log(log)
@@ -19,10 +20,6 @@ const path = require('path')
 const os = require('os')
 const fs = require('fs') //fs means files
 
-const EventEmitter = require('events')
-//above sets a EventEmitter Class !! coz it's uppercase
-const emitter = new EventEmitter()
-
 let totalMemory = os.totalmem();
 let freeMemory = os.freemem();
 
@@ -39,10 +36,8 @@ fs.readdir('./', function(err, files){
 })
 
 //Register a listener
-emitter.on('messageLogging', function(){
-  console.log("Listener called")
+logger.on('messageLogging', (arg) => {
+  console.log("Listener called", arg)
 })
 
-//Raise an event
-//This has to go after the listener method, otherwise it won't work.
-emitter.emit('messageLogging')
+logger.log('message')
