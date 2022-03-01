@@ -44,4 +44,5 @@ emitter.on('messageLogging', function(){
 })
 
 //Raise an event
+//This has to go after the listener method, otherwise it won't work.
 emitter.emit('messageLogging')
