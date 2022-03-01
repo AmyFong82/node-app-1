@@ -1,4 +1,6 @@
-var logger = require('./logger')
+//used const to set the variable for a required file
+//so that we don't overwrite it.
+const logger = require('./logger')
 
 //see what logger is in the console.
 console.log(logger)
