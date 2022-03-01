@@ -1,5 +1,9 @@
-function sayHello(name){
-  console.log("Hello " + name)
-}
+var logger = require('./logger')
 
-sayHello("Amy")
+//see what logger is in the console.
+console.log(logger)
+//it returns this, it has a function called log
+// { log: [Function: log] }
+
+// try it out
+logger.log("Amy, how are you!")
