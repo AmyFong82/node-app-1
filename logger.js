@@ -1,3 +1,7 @@
+console.log(__filename); //filename of this file, 
+// above line actually shows the complete path of the file
+console.log(__dirname) //path of this file
+
 let url = 'http://mylogger.io.log'
 
 function log(msg) {
