@@ -19,6 +19,10 @@ const path = require('path')
 const os = require('os')
 const fs = require('fs') //fs means files
 
+const EventEmitter = require('events')
+//above sets a EventEmitter Class !! coz it's uppercase
+const emitter = new EventEmitter()
+
 let totalMemory = os.totalmem();
 let freeMemory = os.freemem();
 
@@ -33,3 +37,11 @@ fs.readdir('./', function(err, files){
   if(err) console.log("Error", err);
   else console.log("Result", files);
 })
+
+//Register a listener
+emitter.on('messageLogging', function(){
+  console.log("Listener called")
+})
+
+//Raise an event
+emitter.emit('messageLogging')
